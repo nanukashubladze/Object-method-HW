@@ -4,8 +4,25 @@
 
 
 
+// function customEntries(obj) {
+//   return Object.keys(obj).map(key => [key, obj[key]]);
+// }
+
+// const input = {
+//   a: 1,
+//   b: 2
+// };
+
+// console.log(customEntries(input)); 
+
 function customEntries(obj) {
-  return Object.keys(obj).map(key => [key, obj[key]]);
+  const entries = [];
+  for (const key in obj) {
+    if (obj.hasOwnProperty(key)) {
+      entries.push([key, obj[key]]);
+    }
+  }
+  return entries;
 }
 
 const input = {
@@ -13,7 +30,7 @@ const input = {
   b: 2
 };
 
-console.log(customEntries(input)); 
+console.log(customEntries(input));
 
 
 // 2. დავწეროთ ფუნქცია რომელიც არგუმენტად მიიღებს ობიექტს.
@@ -23,10 +40,27 @@ console.log(customEntries(input));
 // არ გამოვიყენოთ Object.keys() ფუნქცია.
 
 
+// function getKeysFromObject(obj) {
+//   const keys = [];
+//   for (const [key] of Object.entries(obj)) {
+//     keys.push(key);
+//   }
+
+//   return keys;
+// }
+
+// const input2 = { a: 1, b: 2 };
+
+
+// console.log(getKeysFromObject(input2));
+
+
 function getKeysFromObject(obj) {
   const keys = [];
-  for (const [key] of Object.entries(obj)) {
-    keys.push(key);
+  for (const key in obj) {
+    if (obj.hasOwnProperty(key)) {
+      keys.push(key);
+    }
   }
 
   return keys;
@@ -34,8 +68,7 @@ function getKeysFromObject(obj) {
 
 const input2 = { a: 1, b: 2 };
 
-
-console.log(getKeysFromObject(input2));
+console.log(getKeysFromObject(input2))
 
 
 // 3. დავწეროთ ფუნქცია რომელიც არგუმენტად მიიღებს ობიექტს.
@@ -45,17 +78,34 @@ console.log(getKeysFromObject(input2));
 // არ გამოვიყენოთ Object.values() ფუნქცია.
 
 
+// function getValuesFromObject(obj) {
+//   const values = [];
+
+//   for (const [, value] of Object.entries(obj)) {
+//     values.push(value);
+//   }
+//   return values;
+// }
+
+// const input3 = { a: 1, b: 2 };
+
+
+// console.log(getValuesFromObject(input3));
+
+
 function getValuesFromObject(obj) {
   const values = [];
 
-  for (const [, value] of Object.entries(obj)) {
-    values.push(value);
+  for (const key in obj) {
+    if (obj.hasOwnProperty(key)) {
+      values.push(obj[key]);
+    }
   }
+
   return values;
 }
 
 const input3 = { a: 1, b: 2 };
-
 
 console.log(getValuesFromObject(input3));
 
