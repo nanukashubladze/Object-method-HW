@@ -18,9 +18,7 @@
 function customEntries(obj) {
   const entries = [];
   for (const key in obj) {
-    if (obj.hasOwnProperty(key)) {
       entries.push([key, obj[key]]);
-    }
   }
   return entries;
 }
@@ -58,9 +56,7 @@ console.log(customEntries(input));
 function getKeysFromObject(obj) {
   const keys = [];
   for (const key in obj) {
-    if (obj.hasOwnProperty(key)) {
       keys.push(key);
-    }
   }
 
   return keys;
@@ -97,14 +93,11 @@ function getValuesFromObject(obj) {
   const values = [];
 
   for (const key in obj) {
-    if (obj.hasOwnProperty(key)) {
       values.push(obj[key]);
-    }
   }
 
   return values;
 }
-
 const input3 = { a: 1, b: 2 };
 
 console.log(getValuesFromObject(input3));
